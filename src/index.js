@@ -13,20 +13,22 @@ submitButton.addEventListener("click", () => {
     const text = textInput.value;
     displayText.innerHTML = '';
 
-    // Split the text into words
     const words = text.split(" ");
 
     let currentText = "";
+    let charCount = 0;
     let currentItem;
 
     for (let i = 0; i < words.length; i++) {
         currentText += words[i] + " ";
+        charCount += words[i].length + 1; // +1 for the space
 
         if (currentText.split(" ").length > 50 || currentText.length > 300) {
             currentItem = document.createElement("li");
             currentItem.textContent = currentText.trim();
             displayText.appendChild(currentItem);
             currentText = ""; // Reset
+            charCount = 0;
         }
     }
 
