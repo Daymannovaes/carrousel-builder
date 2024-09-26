@@ -1,4 +1,4 @@
-import {log} from "./util.js";
+import { log } from "./util.js";
 log();
 
 const textInput = document.getElementById("textInput");
@@ -42,4 +42,3 @@ submitButton.addEventListener("click", () => {
     textInput.value = "";
     charCounter.textContent = "Characters: 0";
 });
-
