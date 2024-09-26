@@ -5,6 +5,10 @@ const textInput = document.getElementById("textInput");
 const submitButton = document.getElementById("submitButton");
 const displayText = document.getElementById("displayText");
 
+textInput.addEventListener("input", () => {
+    charCounter.textContent = `Characters: ${textInput.value.length}`;
+});
+
 submitButton.addEventListener("click", () => {
     const text = textInput.value;
     displayText.innerHTML = '';
@@ -34,5 +38,6 @@ submitButton.addEventListener("click", () => {
     }
 
     textInput.value = "";
+    charCounter.textContent = "Characters: 0";
 });
 
