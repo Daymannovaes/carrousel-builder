@@ -4,41 +4,61 @@ log();
 const textInput = document.getElementById("textInput");
 const submitButton = document.getElementById("submitButton");
 const displayText = document.getElementById("displayText");
+const charCounter = document.getElementById("charCounter");
+const errorMessage = document.getElementById("errorMessage");
 
-textInput.addEventListener("input", () => {
-    charCounter.textContent = `Characters: ${textInput.value.length}`;
-});
+const splitText = (text) => {
+    const words = text.split(" ");
+    const resultingText = [];
+    let currentText = "";
+
+    for (let i = 0; i < words.length; i++) {
+        if (words[i].length > 300) {
+            errorMessage.textContent = "Erro: A palavra '" + words[i] + "' tem mais de 300 caracteres."
+            return;
+        }
+
+        currentText += words[i] + " ";
+
+        if (currentText.split(" ").length > 50 || currentText.length > 300) {
+            resultingText.push(currentText.trim());
+            currentText = "";
+        }  
+    }
+
+    if (currentText) {
+        resultingText.push(currentText.trim());
+    }
+
+    return resultingText;
+};
+
+const createListItems = (items) => {
+    displayText.innerHTML = '';
+    const ul = document.createElement("ul");
+
+    items.forEach(item => {
+        const listItem = document.createElement("li");
+        listItem.textContent = item;
+        ul.appendChild(listItem);
+    });
+
+    displayText.appendChild(ul);
+};
 
 submitButton.addEventListener("click", () => {
     const text = textInput.value;
-    displayText.innerHTML = '';
+    errorMessage.textContent = "";
 
-    const words = text.split(" ");
+    const splitItems = splitText(text);
 
-    let currentText = "";
-    let charCount = 0;
-    let currentItem;
-
-    for (let i = 0; i < words.length; i++) {
-        currentText += words[i] + " ";
-        charCount += words[i].length + 1; // +1 for the space
-
-        if (currentText.split(" ").length > 50 || currentText.length > 300) {
-            currentItem = document.createElement("li");
-            currentItem.textContent = currentText.trim();
-            displayText.appendChild(currentItem);
-            currentText = ""; // Reset
-            charCount = 0;
-        }
+    if (splitItems) {
+        createListItems(splitItems);
     }
 
-    // Remaining text
-    if (currentText) {
-        currentItem = document.createElement("li");
-        currentItem.textContent = currentText.trim();
-        displayText.appendChild(currentItem);
-    }
+    return;
+});
 
-    textInput.value = "";
-    charCounter.textContent = "Characters: 0";
+textInput.addEventListener("input", () => {
+    charCounter.textContent = `Characters: ${textInput.value.length}`;
 });
