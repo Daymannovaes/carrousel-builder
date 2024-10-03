@@ -1,5 +1,7 @@
 import './style.css';
 
+import { getConfiguration } from './settings.js';
+
 import { log } from "./util.js";
 log();
 
@@ -8,8 +10,6 @@ const submitButton = document.getElementById("submitButton");
 const displayText = document.getElementById("displayText");
 const charCounter = document.getElementById("charCounter");
 const errorMessage = document.getElementById("errorMessage");
-const fontColorInput = document.getElementById("fontColor");
-const backgroundColorInput = document.getElementById("backgroundColor");
 
 const splitText = (text) => {
     const words = text.split(" ");
@@ -70,6 +70,7 @@ submitButton.addEventListener("click", () => {
     const splitItems = splitText(text);
 
     if (splitItems) {
+        const { fontColor, backgroundColor } = getConfiguration();
         createListItems(splitItems, { fontColor: fontColor, backgroundColor: backgroundColor });
     }
 
