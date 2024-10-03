@@ -8,6 +8,8 @@ const submitButton = document.getElementById("submitButton");
 const displayText = document.getElementById("displayText");
 const charCounter = document.getElementById("charCounter");
 const errorMessage = document.getElementById("errorMessage");
+const fontColorInput = document.getElementById("fontColor");
+const backgroundColorInput = document.getElementById("backgroundColor");
 
 const splitText = (text) => {
     const words = text.split(" ");
