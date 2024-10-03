@@ -1,5 +1,7 @@
 import './style.css';
 
+import { getConfiguration } from './settings.js';
+
 import { log } from "./util.js";
 log();
 
@@ -35,15 +37,24 @@ const splitText = (text) => {
     return resultingText;
 };
 
-const createListItems = (items) => {
+const createListItem = (item, { fontColor = "#000", backgroundColor = "#f0f0f0" }) => {
+    const listItem = document.createElement("li");
+    listItem.classList.add("carousel-item");
+    listItem.textContent = item;
+
+    listItem.style.color = fontColor;
+    listItem.style.backgroundColor = backgroundColor;
+
+    return listItem;
+};
+
+const createListItems = (items, { fontColor, backgroundColor }) => {
     displayText.innerHTML = '';
     const ul = document.createElement("ul");
     ul.classList.add("carousel");
 
     items.forEach(item => {
-        const listItem = document.createElement("li");
-        listItem.classList.add("carousel-item");
-        listItem.textContent = item;
+        const listItem = createListItem(item, { fontColor, backgroundColor });
         ul.appendChild(listItem);
     });
 
@@ -57,7 +68,8 @@ submitButton.addEventListener("click", () => {
     const splitItems = splitText(text);
 
     if (splitItems) {
-        createListItems(splitItems);
+        const { fontColor, backgroundColor } = getConfiguration();
+        createListItems(splitItems, { fontColor, backgroundColor });
     }
 
     return;
