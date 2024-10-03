@@ -69,7 +69,7 @@ submitButton.addEventListener("click", () => {
 
     if (splitItems) {
         const { fontColor, backgroundColor } = getConfiguration();
-        createListItems(splitItems, { fontColor: fontColor, backgroundColor: backgroundColor });
+        createListItems(splitItems, { fontColor, backgroundColor });
     }
 
     return;
