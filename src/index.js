@@ -37,7 +37,7 @@ const splitText = (text) => {
     return resultingText;
 };
 
-const createListItems = (items) => {
+const createListItems = (items, fontColor, backgroundColor) => {
     displayText.innerHTML = '';
     const ul = document.createElement("ul");
     ul.classList.add("carousel");
@@ -46,6 +46,10 @@ const createListItems = (items) => {
         const listItem = document.createElement("li");
         listItem.classList.add("carousel-item");
         listItem.textContent = item;
+
+        listItem.style.color = fontColor || "#000"; // Default to black
+        listItem.style.backgroundColor = backgroundColor || "#f0f0f0"; // Default to gray
+
         ul.appendChild(listItem);
     });
 
@@ -54,12 +58,14 @@ const createListItems = (items) => {
 
 submitButton.addEventListener("click", () => {
     const text = textInput.value;
+    const fontColor = fontColorInput.value;
+    const backgroundColor = backgroundColorInput.value;
     errorMessage.textContent = "";
 
     const splitItems = splitText(text);
 
     if (splitItems) {
-        createListItems(splitItems);
+        createListItems(splitItems, fontColor, backgroundColor);
     }
 
     return;
