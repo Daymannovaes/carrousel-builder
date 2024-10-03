@@ -1,4 +1,4 @@
-import './styles.css';
+import './style.css';
 
 import { log } from "./util.js";
 log();
@@ -38,9 +38,11 @@ const splitText = (text) => {
 const createListItems = (items) => {
     displayText.innerHTML = '';
     const ul = document.createElement("ul");
+    ul.classList.add("carousel");
 
     items.forEach(item => {
         const listItem = document.createElement("li");
+        listItem.classList.add("carousel-item");
         listItem.textContent = item;
         ul.appendChild(listItem);
     });

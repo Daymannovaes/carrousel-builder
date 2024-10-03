@@ -1,4 +1,4 @@
-ul {
+.carousel {
     list-style-type: none;
     padding: 0;
     display: flex;
@@ -6,7 +6,7 @@ ul {
     gap: 20px;
 }
 
-li {
+.carousel-item {
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     width: 200px;
@@ -22,6 +22,6 @@ li {
     transition: transform 0.3s;
 }
 
-li:hover {
+.carousel-item:hover {
     transform: scale(1.05);
 }
