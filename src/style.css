@@ -4,9 +4,11 @@
     display: flex;
     overflow-x: auto;
     gap: 20px;
+    scroll-snap-type: x mandatory;
 }
 
 .carousel-item {
+    flex: 0 0 auto;
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     width: 200px;
