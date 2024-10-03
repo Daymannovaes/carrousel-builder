@@ -37,24 +37,24 @@ const splitText = (text) => {
     return resultingText;
 };
 
-const createListItem = (item, fontColor, backgroundColor) => {
+const createListItem = (item, { fontColor = "#000", backgroundColor = "#f0f0f0" }) => {
     const listItem = document.createElement("li");
     listItem.classList.add("carousel-item");
     listItem.textContent = item;
 
-    listItem.style.color = fontColor || "#000"; // Default to black
-    listItem.style.backgroundColor = backgroundColor || "#f0f0f0"; // Default to gray
+    listItem.style.color = fontColor;
+    listItem.style.backgroundColor = backgroundColor;
 
     return listItem;
 };
 
-const createListItems = (items, fontColor, backgroundColor) => {
+const createListItems = (items, { fontColor, backgroundColor }) => {
     displayText.innerHTML = '';
     const ul = document.createElement("ul");
     ul.classList.add("carousel");
 
     items.forEach(item => {
-        const listItem = createListItem(item, fontColor, backgroundColor);
+        const listItem = createListItem(item, { fontColor, backgroundColor });
         ul.appendChild(listItem);
     });
 
@@ -70,7 +70,7 @@ submitButton.addEventListener("click", () => {
     const splitItems = splitText(text);
 
     if (splitItems) {
-        createListItems(splitItems, fontColor, backgroundColor);
+        createListItems(splitItems, { fontColor: fontColor, backgroundColor: backgroundColor });
     }
 
     return;
