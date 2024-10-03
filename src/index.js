@@ -63,8 +63,6 @@ const createListItems = (items, { fontColor, backgroundColor }) => {
 
 submitButton.addEventListener("click", () => {
     const text = textInput.value;
-    const fontColor = fontColorInput.value;
-    const backgroundColor = backgroundColorInput.value;
     errorMessage.textContent = "";
 
     const splitItems = splitText(text);
