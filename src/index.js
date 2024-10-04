@@ -1,8 +1,7 @@
 import './style.css';
-
+import { log } from "./util.js";
 import { getConfiguration } from './settings.js';
 
-import { log } from "./util.js";
 log();
 
 const textInput = document.getElementById("textInput");
@@ -37,7 +36,7 @@ const splitText = (text) => {
     return resultingText;
 };
 
-const createListItem = (item, { fontColor = "#000", backgroundColor = "#f0f0f0" }) => {
+const createListItem = (item, { fontColor, backgroundColor }) => {
     const listItem = document.createElement("li");
     listItem.classList.add("carousel-item");
     listItem.textContent = item;
