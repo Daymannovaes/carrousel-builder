@@ -1,9 +1,11 @@
-import Picker from 'vanilla-picker';
+import Picker from 'vanilla-picker/csp';
+import 'vanilla-picker/dist/vanilla-picker.csp.css';
 
 const fontColorInput = document.getElementById("fontColor");
 const backgroundColorInput = document.getElementById("backgroundColor");
+const colorPickerButton = document.getElementById("color-picker-button");
 
-new Picker({
+const fontColorPicker = new Picker({
     parent: fontColorInput,
     popup: 'left',
     color: '#000',
@@ -12,12 +14,22 @@ new Picker({
     }
 });
 
-new Picker({
+const backgroundColorPicker = new Picker({
     parent: backgroundColorInput,
     popup: 'left',
     color: '#f0f0f0',
     onChange: (color) => {
         backgroundColorInput.value = color.hex;
+    }
+});
+
+const buttonPicker = new Picker({
+    parent: colorPickerButton,
+    popup: 'right',
+    color: '#00f',
+    onChange: (color) => {
+        // Apply the selected color to the button background
+        colorPickerButton.style.backgroundColor = color.rgbaString;
     }
 });
 

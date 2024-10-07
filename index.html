@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carousel Builder</title>
+    <link href="https://unpkg.com/vanilla-picker@2/dist/vanilla-picker.min.css" rel="stylesheet">
 </head>
 <body>
     <h1>Carousel Builder</h1>    
     <input type="text" id="textInput" placeholder="Enter your text here...">
     <input type="text" id="fontColor" placeholder="Set font color">
     <input type="text" id="backgroundColor" placeholder="Set background color">
+
+<section>
+    <a href="#" class="button" id="color-picker-button">Click me!</a>
+</section>
     <p id="charCounter">Characters: 0</p>
     <button id="submitButton">Submit</button>
     <div id="displayText">
         <ul class="carousel"></ul>
     </div>
     <div id="errorMessage" style="color: red;"></div>
+    <script src="https://unpkg.com/vanilla-picker@2"></script>
     <script type="module" src="/src/index.js"></script>
 </body>
 </html>
