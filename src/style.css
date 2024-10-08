@@ -29,13 +29,17 @@
     transform: scale(1.05);
 }
 
+.color-picker-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
 .color-preview {
     width: 20px;
     height: 20px;
-    display: inline-block;
-    align-items: center;
-    border: 1px solid #ccc;
-    display: auto;
     margin-left: 10px;
-    background-color: #000
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    background-color: #000;
 }
