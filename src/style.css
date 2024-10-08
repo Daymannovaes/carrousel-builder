@@ -28,21 +28,3 @@
 .carousel-item:hover {
     transform: scale(1.05);
 }
-
-.button {
-    position: relative;
-    display: inline-block;
-    box-sizing: border-box;
-    padding: 0.5em 1em;
-    min-height: 2em;
-    border: none;
-    outline: none;
-    overflow: visible;
-    
-    background-color: dodgerblue;
-    color: white;
-
-    font-family: sans-serif;
-    text-align: center;
-    cursor: pointer;
-}
