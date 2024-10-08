@@ -28,3 +28,13 @@
 .carousel-item:hover {
     transform: scale(1.05);
 }
+
+.color-preview {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    border: 1px solid #ccc;
+    display: inline-block;
+    margin-left: 10px;
+    background-color: #000
+}

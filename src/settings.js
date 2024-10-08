@@ -4,6 +4,8 @@ import 'vanilla-picker/dist/vanilla-picker.csp.css';
 const fontColorInput = document.getElementById("fontColor");
 const backgroundColorInput = document.getElementById("backgroundColor");
 const fontColorButton = document.getElementById("fontColorButton");
+const fontColorPreview = document.getElementById("fontColorPreview");
+const backgroundColorPreview = document.getElementById("backgroundColorPreview");
 const backgroundColorButton = document.getElementById("backgroundColorButton");
 
 const fontColorPicker = new Picker({
@@ -12,6 +14,7 @@ const fontColorPicker = new Picker({
     color: '#000',
     onChange: (color) => {
         fontColorInput.value = color.hex;
+        fontColorPreview.style.backgroundColor = color.hex;
     }
 });
 
@@ -21,6 +24,7 @@ const backgroundColorPicker = new Picker({
     color: '#f0f0f0',
     onChange: (color) => {
         backgroundColorInput.value = color.hex;
+        backgroundColorPreview.style.backgroundColor = color.hex;
     }
 });
 
