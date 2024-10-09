@@ -1,8 +1,16 @@
 import './style.css';
-
-import { getConfiguration } from './settings.js';
-
 import { log } from "./util.js";
+import { getConfiguration, initializeColorPicker } from './settings.js';
+
+initializeColorPicker({
+    fontColorButton: document.getElementById("fontColorButton"),
+    fontColorInput: document.getElementById("fontColor"),
+    fontColorPreview: document.getElementById("fontColorPreview"),
+    backgroundColorButton: document.getElementById("backgroundColorButton"),
+    backgroundColorInput: document.getElementById("backgroundColor"),
+    backgroundColorPreview: document.getElementById("backgroundColorPreview")
+});
+
 log();
 
 const textInput = document.getElementById("textInput");
@@ -27,7 +35,7 @@ const splitText = (text) => {
         if (currentText.split(" ").length > 50 || currentText.length > 300) {
             resultingText.push(currentText.trim());
             currentText = "";
-        }  
+        }
     }
 
     if (currentText) {
@@ -37,7 +45,7 @@ const splitText = (text) => {
     return resultingText;
 };
 
-const createListItem = (item, { fontColor = "#000", backgroundColor = "#f0f0f0" }) => {
+const createListItem = (item, { fontColor, backgroundColor }) => {
     const listItem = document.createElement("li");
     listItem.classList.add("carousel-item");
     listItem.textContent = item;

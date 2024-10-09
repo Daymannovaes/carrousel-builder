@@ -9,7 +9,7 @@
 
 .carousel-item {
     flex: 0 0 auto;
-    font-family: 'Roboto', sans-serif;
+    font-family: Georgia, sans-serif;
     font-size: 15px;
     width: 200px;
     height: auto;
@@ -18,7 +18,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0px;
+    margin: 0;
     padding: 20px;
     word-wrap: break-word;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -27,4 +27,19 @@
 
 .carousel-item:hover {
     transform: scale(1.05);
+}
+
+.color-picker-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.color-preview {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    background-color: #000;
 }

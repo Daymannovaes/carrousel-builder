@@ -20,5 +20,8 @@
   "description": "",
   "devDependencies": {
     "vite": "^5.4.8"
+  },
+  "dependencies": {
+    "vanilla-picker": "^2.12.3"
   }
 }
