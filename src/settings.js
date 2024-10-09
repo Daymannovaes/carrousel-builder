@@ -8,25 +8,27 @@ const fontColorPreview = document.getElementById("fontColorPreview");
 const backgroundColorPreview = document.getElementById("backgroundColorPreview");
 const backgroundColorButton = document.getElementById("backgroundColorButton");
 
-const fontColorPicker = new Picker({
-    parent: fontColorButton,
-    popup: 'right',
-    color: '#000',
-    onChange: (color) => {
-        fontColorInput.value = color.hex;
-        fontColorPreview.style.backgroundColor = color.hex;
-    }
-});
+export const initializeColorPicker = () => {
+    const fontColorPicker = new Picker({
+        parent: fontColorButton,
+        popup: 'right',
+        color: '#000',
+        onChange: (color) => {
+            fontColorInput.value = color.hex;
+            fontColorPreview.style.backgroundColor = color.hex;
+        }
+    });
 
-const backgroundColorPicker = new Picker({
-    parent: backgroundColorButton,
-    popup: 'right',
-    color: '#f0f0f0',
-    onChange: (color) => {
-        backgroundColorInput.value = color.hex;
-        backgroundColorPreview.style.backgroundColor = color.hex;
-    }
-});
+    const backgroundColorPicker = new Picker({
+        parent: backgroundColorButton,
+        popup: 'right',
+        color: '#f0f0f0',
+        onChange: (color) => {
+            backgroundColorInput.value = color.hex;
+            backgroundColorPreview.style.backgroundColor = color.hex;
+        }
+    });
+}
 
 export const getConfiguration = () => {
     return {

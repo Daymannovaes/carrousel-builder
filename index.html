@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carousel Builder</title>
-    <link href="vanilla-picker.csp.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
@@ -19,20 +18,19 @@
         <div id="fontColorPreview" class="color-preview"></div>
         <input type="text" id="fontColor" placeholder="Set font color">
     </div>
-    
+
     <div class="color-picker-container">
         <button id="backgroundColorButton"><i class="fas fa-fill-drip"></i></button>
         <div id="backgroundColorPreview" class="color-preview"></div>
         <input type="text" id="backgroundColor" placeholder="Set background color">
     </div>
-    
+
     <p id="charCounter">Characters: 0</p>
     <button id="submitButton">Submit</button>
     <div id="displayText">
         <ul class="carousel"></ul>
     </div>
     <div id="errorMessage" style="color: red;"></div>
-    <script src="vanilla-picker.csp.min.js"></script>
     <script type="module" src="/src/index.js"></script>
 </body>
 

@@ -1,7 +1,9 @@
 import './style.css';
 import { log } from "./util.js";
+import { initializeColorPicker } from './settings.js';
 import { getConfiguration } from './settings.js';
 
+initializeColorPicker();
 log();
 
 const textInput = document.getElementById("textInput");
@@ -26,7 +28,7 @@ const splitText = (text) => {
         if (currentText.split(" ").length > 50 || currentText.length > 300) {
             resultingText.push(currentText.trim());
             currentText = "";
-        }  
+        }
     }
 
     if (currentText) {
