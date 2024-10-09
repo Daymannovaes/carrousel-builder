@@ -1,9 +1,16 @@
 import './style.css';
 import { log } from "./util.js";
-import { initializeColorPicker } from './settings.js';
-import { getConfiguration } from './settings.js';
+import { getConfiguration, initializeColorPicker } from './settings.js';
 
-initializeColorPicker();
+initializeColorPicker({
+    fontColorButton: document.getElementById("fontColorButton"),
+    fontColorInput: document.getElementById("fontColor"),
+    fontColorPreview: document.getElementById("fontColorPreview"),
+    backgroundColorButton: document.getElementById("backgroundColorButton"),
+    backgroundColorInput: document.getElementById("backgroundColor"),
+    backgroundColorPreview: document.getElementById("backgroundColorPreview")
+});
+
 log();
 
 const textInput = document.getElementById("textInput");

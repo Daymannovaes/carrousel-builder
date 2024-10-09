@@ -3,12 +3,15 @@ import 'vanilla-picker/dist/vanilla-picker.csp.css';
 
 const fontColorInput = document.getElementById("fontColor");
 const backgroundColorInput = document.getElementById("backgroundColor");
-const fontColorButton = document.getElementById("fontColorButton");
-const fontColorPreview = document.getElementById("fontColorPreview");
-const backgroundColorPreview = document.getElementById("backgroundColorPreview");
-const backgroundColorButton = document.getElementById("backgroundColorButton");
 
-export const initializeColorPicker = () => {
+export const initializeColorPicker = ({
+    fontColorButton,
+    fontColorInput,
+    fontColorPreview,
+    backgroundColorButton,
+    backgroundColorInput,
+    backgroundColorPreview
+}) => {
     const fontColorPicker = new Picker({
         parent: fontColorButton,
         popup: 'right',
