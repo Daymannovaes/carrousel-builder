@@ -1,5 +1,4 @@
 import Picker from 'vanilla-picker';
-import 'vanilla-picker/dist/vanilla-picker.csp.css';
 
 const fontColorInput = document.getElementById("fontColor") as HTMLInputElement;
 const backgroundColorInput = document.getElementById("backgroundColor") as HTMLInputElement;
