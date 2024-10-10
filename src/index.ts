@@ -1,32 +1,29 @@
 import './style.css';
-import { log } from "./util.js";
-import { getConfiguration, initializeColorPicker } from './settings.js';
+import { getConfiguration, initializeColorPicker } from './settings';
 
 initializeColorPicker({
-    fontColorButton: document.getElementById("fontColorButton"),
-    fontColorInput: document.getElementById("fontColor"),
-    fontColorPreview: document.getElementById("fontColorPreview"),
-    backgroundColorButton: document.getElementById("backgroundColorButton"),
-    backgroundColorInput: document.getElementById("backgroundColor"),
-    backgroundColorPreview: document.getElementById("backgroundColorPreview")
+    fontColorButton: document.getElementById("fontColorButton") as HTMLElement,
+    fontColorInput: document.getElementById("fontColor") as HTMLInputElement,
+    fontColorPreview: document.getElementById("fontColorPreview") as HTMLElement,
+    backgroundColorButton: document.getElementById("backgroundColorButton") as HTMLElement,
+    backgroundColorInput: document.getElementById("backgroundColor") as HTMLInputElement,
+    backgroundColorPreview: document.getElementById("backgroundColorPreview") as HTMLElement
 });
 
-log();
+const textInput = document.getElementById("textInput")! as HTMLInputElement;
+const submitButton = document.getElementById("submitButton")!;
+const displayText = document.getElementById("displayText")!;
+const charCounter = document.getElementById("charCounter")!;
+const errorMessage = document.getElementById("errorMessage")!;
 
-const textInput = document.getElementById("textInput");
-const submitButton = document.getElementById("submitButton");
-const displayText = document.getElementById("displayText");
-const charCounter = document.getElementById("charCounter");
-const errorMessage = document.getElementById("errorMessage");
-
-const splitText = (text) => {
+const splitText = (text: string) => {
     const words = text.split(" ");
     const resultingText = [];
     let currentText = "";
 
     for (let i = 0; i < words.length; i++) {
         if (words[i].length > 300) {
-            errorMessage.textContent = "Erro: A palavra '" + words[i] + "' tem mais de 300 caracteres."
+            (errorMessage as HTMLElement).textContent = "Erro: A palavra '" + words[i] + "' tem mais de 300 caracteres."
             return;
         }
 
@@ -45,7 +42,7 @@ const splitText = (text) => {
     return resultingText;
 };
 
-const createListItem = (item, { fontColor, backgroundColor }) => {
+const createListItem = (item: string, { fontColor, backgroundColor }: { fontColor: string, backgroundColor: string }) => {
     const listItem = document.createElement("li");
     listItem.classList.add("carousel-item");
     listItem.textContent = item;
@@ -56,7 +53,7 @@ const createListItem = (item, { fontColor, backgroundColor }) => {
     return listItem;
 };
 
-const createListItems = (items, { fontColor, backgroundColor }) => {
+const createListItems = (items: string[], { fontColor, backgroundColor }: { fontColor: string, backgroundColor: string }) => {
     displayText.innerHTML = '';
     const ul = document.createElement("ul");
     ul.classList.add("carousel");

@@ -1,8 +1,8 @@
-import Picker from 'vanilla-picker/csp';
+import Picker from 'vanilla-picker';
 import 'vanilla-picker/dist/vanilla-picker.csp.css';
 
-const fontColorInput = document.getElementById("fontColor");
-const backgroundColorInput = document.getElementById("backgroundColor");
+const fontColorInput = document.getElementById("fontColor") as HTMLInputElement;
+const backgroundColorInput = document.getElementById("backgroundColor") as HTMLInputElement;
 
 export const initializeColorPicker = ({
     fontColorButton,
@@ -11,8 +11,15 @@ export const initializeColorPicker = ({
     backgroundColorButton,
     backgroundColorInput,
     backgroundColorPreview
+}: {
+    fontColorButton: HTMLElement,
+    fontColorInput: HTMLInputElement,
+    fontColorPreview: HTMLElement,
+    backgroundColorButton: HTMLElement,
+    backgroundColorInput: HTMLInputElement,
+    backgroundColorPreview: HTMLElement
 }) => {
-    const fontColorPicker = new Picker({
+    new Picker({
         parent: fontColorButton,
         popup: 'right',
         color: '#000',
@@ -22,7 +29,7 @@ export const initializeColorPicker = ({
         }
     });
 
-    const backgroundColorPicker = new Picker({
+    new Picker({
         parent: backgroundColorButton,
         popup: 'right',
         color: '#f0f0f0',
@@ -35,7 +42,7 @@ export const initializeColorPicker = ({
 
 export const getConfiguration = () => {
     return {
-        fontColor: fontColorInput.value || "#000",
-        backgroundColor: backgroundColorInput.value || "#f0f0f0"
+        fontColor: fontColorInput!.value || "#000",
+        backgroundColor: backgroundColorInput!.value || "#f0f0f0"
     };
 };
