@@ -1,5 +1,6 @@
 import './style.css';
 import { getConfiguration, initializeColorPicker } from './settings';
+import { CarouselSlide } from './carousel-slide';
 
 initializeColorPicker({
     fontColorButton: document.getElementById("fontColorButton") as HTMLElement,
@@ -43,12 +44,9 @@ const splitText = (text: string) => {
 };
 
 const createListItem = (item: string, { fontColor, backgroundColor }: { fontColor: string, backgroundColor: string }) => {
-    const listItem = document.createElement("li");
-    listItem.classList.add("carousel-item");
+    const listItem = document.createElement("carousel-slide");
+    listItem.setAttribute("style", `color: ${fontColor}; background-color: ${backgroundColor};`);
     listItem.textContent = item;
-
-    listItem.style.color = fontColor;
-    listItem.style.backgroundColor = backgroundColor;
 
     return listItem;
 };

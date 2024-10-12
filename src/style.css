@@ -7,7 +7,7 @@
     scroll-snap-type: x mandatory;
 }
 
-.carousel-item {
+.carousel-slide {
     flex: 0 0 auto;
     font-family: Georgia, sans-serif;
     font-size: 15px;
