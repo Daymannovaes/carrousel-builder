@@ -15,7 +15,7 @@ export class CarouselSlide extends HTMLElement {
                 font-family: Georgia, sans-serif;
                 font-size: 15px;
                 width: 200px;
-                height: auto;
+                height: 200px;
                 background-color: #f0f0f0;
                 border-radius: 15px;
                 display: flex;
@@ -44,11 +44,8 @@ export class CarouselSlide extends HTMLElement {
     }
 
     attributeChangedCallback() {
-        this.updateStyle(); // Update styles when attributes change
-    }
-
-    connectedCallback() {
-        this.updateContent(); // Update content when connected to the DOM
+        this.updateContent();
+        this.updateStyle();
     }
 
     updateStyle() {
