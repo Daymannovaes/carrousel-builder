@@ -3,9 +3,9 @@ export class CarouselSlide extends HTMLElement {
         super();
         const shadow = this.attachShadow({ mode: "open" });
 
-        const wrapper = document.createElement("div");
-        wrapper.classList.add("carousel-slide");
-        wrapper.textContent = this.textContent;
+        const container = document.createElement('div');
+        container.classList.add('carousel-slide');
+        container.textContent = this.textContent;
 
         const style = document.createElement("style");
         style.textContent = `
@@ -27,13 +27,12 @@ export class CarouselSlide extends HTMLElement {
                 transition: transform 0.3s;
             }
 
-            .carousel-item:hover {
+            .carousel-slide:hover {
                 transform: scale(1.05);
             }
         `;
 
         shadow.appendChild(style);
-        shadow.appendChild(wrapper);
+        shadow.appendChild(container);
     }
 }
-customElements.define("carousel-slide", CarouselSlide);
