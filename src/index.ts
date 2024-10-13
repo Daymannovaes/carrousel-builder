@@ -47,11 +47,10 @@ const splitText = (text: string) => {
 
 const createListItem = (item: string, { fontColor, backgroundColor }: { fontColor: string, backgroundColor: string }) => {
     const listItem = document.createElement("carousel-slide");
-    listItem.classList.add("carousel-slide");
     listItem.textContent = item;
 
-    listItem.style.color = fontColor;
-    listItem.style.backgroundColor = backgroundColor;
+    listItem.setAttribute('backgroundColor', backgroundColor);
+    listItem.setAttribute('fontColor', fontColor);
 
     return listItem;
 };

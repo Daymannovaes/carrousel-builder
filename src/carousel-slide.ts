@@ -1,11 +1,12 @@
 export class CarouselSlide extends HTMLElement {
+    private container: HTMLDivElement;
+
     constructor() {
         super();
         const shadow = this.attachShadow({ mode: "open" });
 
         const container = document.createElement('div');
         container.classList.add('carousel-slide');
-        container.textContent = this.textContent;
 
         const style = document.createElement("style");
         style.textContent = `
@@ -34,5 +35,25 @@ export class CarouselSlide extends HTMLElement {
 
         shadow.appendChild(style);
         shadow.appendChild(container);
+
+        this.container = container;
+        this.updateStyle();
+    }
+
+    static get observedAttributes() {
+        return ['backgroundColor', 'fontColor'];
+    }
+
+    attributeChangedCallback() {
+        this.updateStyle();
+    }
+
+    updateStyle() {
+        const backgroundColor = this.getAttribute('backgroundColor') || '#f0f0f0';
+        const fontColor = this.getAttribute('fontColor') || '#000000';
+
+        this.container.style.backgroundColor = backgroundColor;
+        this.container.style.color = fontColor;
+        this.container.textContent = this.textContent;
     }
 }
