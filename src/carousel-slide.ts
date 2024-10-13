@@ -40,14 +40,6 @@ export class CarouselSlide extends HTMLElement {
         this.updateStyle();
     }
 
-    static get observedAttributes() {
-        return ['backgroundColor', 'fontColor'];
-    }
-
-    attributeChangedCallback() {
-        this.updateStyle();
-    }
-
     updateStyle() {
         const backgroundColor = this.getAttribute('backgroundColor') || '#f0f0f0';
         const fontColor = this.getAttribute('fontColor') || '#000000';
