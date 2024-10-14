@@ -35,17 +35,15 @@ export class CarouselSlide extends HTMLElement {
 
         shadow.appendChild(style);
         shadow.appendChild(this.container);
-
-        this.updateStyle();
     }
 
-    static get observedAttributes() {
-        return ['backgroundColor', 'fontColor'];
-    }
-
-    attributeChangedCallback() {
+    connectedCallback() {
         this.updateContent();
         this.updateStyle();
+    }
+
+    updateContent() {
+        this.container.textContent = this.textContent;
     }
 
     updateStyle() {
@@ -54,9 +52,5 @@ export class CarouselSlide extends HTMLElement {
 
         this.container.style.backgroundColor = backgroundColor;
         this.container.style.color = fontColor;
-    }
-
-    updateContent() {
-        this.container.textContent = this.textContent;
     }
 }
