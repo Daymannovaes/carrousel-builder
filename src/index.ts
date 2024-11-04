@@ -85,3 +85,4 @@ submitButton.addEventListener("click", () => {
 textInput.addEventListener("input", () => {
     charCounter.textContent = `Characters: ${textInput.value.length}`;
 });
+
