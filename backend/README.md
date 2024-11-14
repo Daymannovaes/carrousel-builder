@@ -1,4 +1,4 @@
-# Carousel
+# CarouselBuilder
 
 To start your Phoenix server:
 

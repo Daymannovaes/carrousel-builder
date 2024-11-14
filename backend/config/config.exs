@@ -7,20 +7,20 @@
 # General application configuration
 import Config
 
-config :carousel,
-  ecto_repos: [Carousel.Repo],
+config :carousel_builder,
+  ecto_repos: [CarouselBuilder.Repo],
   generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
-config :carousel, CarouselWeb.Endpoint,
+config :carousel_builder, CarouselBuilderWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
-    formats: [html: CarouselWeb.ErrorHTML, json: CarouselWeb.ErrorJSON],
+    formats: [json: CarouselBuilderWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: Carousel.PubSub,
-  live_view: [signing_salt: "mSffoOVA"]
+  pubsub_server: CarouselBuilder.PubSub,
+  live_view: [signing_salt: "32VECgpm"]
 
 # Configures the mailer
 #
@@ -29,29 +29,7 @@ config :carousel, CarouselWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :carousel, Carousel.Mailer, adapter: Swoosh.Adapters.Local
-
-# Configure esbuild (the version is required)
-config :esbuild,
-  version: "0.17.11",
-  carousel: [
-    args:
-      ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
-    cd: Path.expand("../assets", __DIR__),
-    env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
-  ]
-
-# Configure tailwind (the version is required)
-config :tailwind,
-  version: "3.4.3",
-  carousel: [
-    args: ~w(
-      --config=tailwind.config.js
-      --input=css/app.css
-      --output=../priv/static/assets/app.css
-    ),
-    cd: Path.expand("../assets", __DIR__)
-  ]
+config :carousel_builder, CarouselBuilder.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -62,8 +40,8 @@ config :logger, :console,
 config :phoenix, :json_library, Jason
 
 # Oban config
-config :carousel, Oban,
-  repo: Carousel.Repo,
+config :carousel_builder, Oban,
+  repo: CarouselBuilder.Repo,
   plugins: [Oban.Plugins.Pruner],
   queues: [
     default: 10

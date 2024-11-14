@@ -1,4 +1,4 @@
-defmodule CarouselWeb.Telemetry do
+defmodule CarouselBuilderWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -52,23 +52,23 @@ defmodule CarouselWeb.Telemetry do
       ),
 
       # Database Metrics
-      summary("carousel.repo.query.total_time",
+      summary("carousel_builder.repo.query.total_time",
         unit: {:native, :millisecond},
         description: "The sum of the other measurements"
       ),
-      summary("carousel.repo.query.decode_time",
+      summary("carousel_builder.repo.query.decode_time",
         unit: {:native, :millisecond},
         description: "The time spent decoding the data received from the database"
       ),
-      summary("carousel.repo.query.query_time",
+      summary("carousel_builder.repo.query.query_time",
         unit: {:native, :millisecond},
         description: "The time spent executing the query"
       ),
-      summary("carousel.repo.query.queue_time",
+      summary("carousel_builder.repo.query.queue_time",
         unit: {:native, :millisecond},
         description: "The time spent waiting for a database connection"
       ),
-      summary("carousel.repo.query.idle_time",
+      summary("carousel_builder.repo.query.idle_time",
         unit: {:native, :millisecond},
         description:
           "The time the connection spent waiting before being checked out for the query"
@@ -86,7 +86,7 @@ defmodule CarouselWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {CarouselWeb, :count_users, []}
+      # {CarouselBuilderWeb, :count_users, []}
     ]
   end
 end

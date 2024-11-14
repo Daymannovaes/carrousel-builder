@@ -1,19 +1,19 @@
-defmodule CarouselWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :carousel
+defmodule CarouselBuilderWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :carousel_builder
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_carousel_key",
-    signing_salt: "E/Ziqsnb",
+    key: "_carousel_builder_key",
+    signing_salt: "2f9fbxpR",
     same_site: "Lax"
   ]
 
-  socket "/live", Phoenix.LiveView.Socket,
-    websocket: [connect_info: [session: @session_options]],
-    longpoll: [connect_info: [session: @session_options]]
+  # socket "/live", Phoenix.LiveView.Socket,
+  #   websocket: [connect_info: [session: @session_options]],
+  #   longpoll: [connect_info: [session: @session_options]]
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -21,22 +21,16 @@ defmodule CarouselWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :carousel,
+    from: :carousel_builder,
     gzip: false,
-    only: CarouselWeb.static_paths()
+    only: CarouselBuilderWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
-    socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
-    plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :carousel
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :carousel_builder
   end
-
-  plug Phoenix.LiveDashboard.RequestLogger,
-    param_key: "request_logger",
-    cookie_key: "request_logger"
 
   plug Plug.RequestId
   plug Plug.Telemetry, event_prefix: [:phoenix, :endpoint]
@@ -49,5 +43,5 @@ defmodule CarouselWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug CarouselWeb.Router
+  plug CarouselBuilderWeb.Router
 end
