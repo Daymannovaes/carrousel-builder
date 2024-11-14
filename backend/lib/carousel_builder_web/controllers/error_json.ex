@@ -1,4 +1,4 @@
-defmodule CarouselWeb.ErrorJSON do
+defmodule CarouselBuilderWeb.ErrorJSON do
   @moduledoc """
   This module is invoked by your endpoint in case of errors on JSON requests.
 
