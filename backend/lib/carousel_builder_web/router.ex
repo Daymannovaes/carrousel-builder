@@ -11,7 +11,6 @@ defmodule CarouselBuilderWeb.Router do
 
   # Enable Swoosh mailbox preview in development
   if Application.compile_env(:carousel_builder, :dev_routes) do
-
     scope "/dev" do
       pipe_through [:fetch_session, :protect_from_forgery]
 
