@@ -7,7 +7,7 @@ defmodule CarouselBuilder.Carousels.Carousel do
 
   schema "carousels" do
     field :carousel, :map, default: %{}
-    field :status, :boolean, default: false
+    field :status, :boolean, default: true
 
     timestamps()
   end
