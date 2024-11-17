@@ -7,6 +7,8 @@ defmodule CarouselBuilderWeb.Router do
 
   scope "/api", CarouselBuilderWeb do
     pipe_through :api
+
+    resources "/carousels", CarouselController
   end
 
   # Enable Swoosh mailbox preview in development
