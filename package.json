@@ -22,7 +22,7 @@
     "jsdom": "^25.0.1",
     "typescript": "^5.6.3",
     "vite": "^5.4.8",
-    "vitest": "^2.1.4"
+    "vitest": "^2.1.5"
   },
   "dependencies": {
     "vanilla-picker": "^2.12.3"
