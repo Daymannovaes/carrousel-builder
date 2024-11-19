@@ -1,5 +1,6 @@
 import './style.css';
 import { getConfiguration, initializeColorPicker } from './settings';
+import { splitText } from '../src/utils/split-text';
 import { CarouselSlide } from './carousel-slide';
 
 customElements.define("carousel-slide", CarouselSlide);
@@ -18,32 +19,6 @@ const submitButton = document.getElementById("submitButton")!;
 const displayText = document.getElementById("displayText")!;
 const charCounter = document.getElementById("charCounter")!;
 const errorMessage = document.getElementById("errorMessage")!;
-
-const splitText = (text: string) => {
-    const words = text.split(" ");
-    const resultingText = [];
-    let currentText = "";
-
-    for (let i = 0; i < words.length; i++) {
-        if (words[i].length > 300) {
-            (errorMessage as HTMLElement).textContent = "Erro: A palavra '" + words[i] + "' tem mais de 300 caracteres."
-            return;
-        }
-
-        currentText += words[i] + " ";
-
-        if (currentText.split(" ").length > 50 || currentText.length > 300) {
-            resultingText.push(currentText.trim());
-            currentText = "";
-        }
-    }
-
-    if (currentText) {
-        resultingText.push(currentText.trim());
-    }
-
-    return resultingText;
-};
 
 const createListItem = (item: string, { fontColor, backgroundColor }: { fontColor: string, backgroundColor: string }) => {
     const listItem = document.createElement("carousel-slide");
