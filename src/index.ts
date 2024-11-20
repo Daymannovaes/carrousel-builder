@@ -1,10 +1,12 @@
 import './style.css';
 import { getConfiguration, initializeColorPicker } from './settings';
-import { splitText } from '../src/utils/split-text';
+import { splitText } from './utils/split-text';
 import { CarouselSlide } from './carousel-slide';
 import { createListItems } from './utils/create-list-items';
 
-customElements.define("carousel-slide", CarouselSlide);
+if (!customElements.get("carousel-slide")) {
+    customElements.define("carousel-slide", CarouselSlide);
+}
 
 initializeColorPicker({
     fontColorButton: document.getElementById("fontColorButton") as HTMLElement,
@@ -24,6 +26,11 @@ const errorMessage = document.getElementById("errorMessage")!;
 submitButton.addEventListener("click", () => {
     const text = textInput.value;
     errorMessage.textContent = "";
+
+    if (!text) {
+        errorMessage.textContent = "Please enter some text.";
+        return;
+    }
 
     const splitItems = splitText(text);
 
