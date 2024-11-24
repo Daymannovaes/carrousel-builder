@@ -1,6 +1,5 @@
 defmodule CarouselBuilderWeb.Telemetry do
   use Supervisor
-
   import Telemetry.Metrics
 
   def start_link(arg) do
