@@ -36,7 +36,9 @@ submitButton.addEventListener("click", () => {
 
     if (splitItems) {
         const { fontColor, backgroundColor } = getConfiguration();
-        createListItems(splitItems, { fontColor, backgroundColor }, displayText);
+        displayText.innerHTML = '';
+        const listItems = createListItems(splitItems, { fontColor, backgroundColor });
+        displayText.append(listItems);
     }
 
     return;

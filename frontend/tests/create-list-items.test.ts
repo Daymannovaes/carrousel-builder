@@ -29,16 +29,11 @@ describe('createListItems', () => {
         document.body.innerHTML = '<div id="displayText"></div>';
     });
 
-    it('should create a list of list items with the provided text and style and append them to the displayText element', () => {
-        const displayText = document.getElementById('displayText')!;
+    it('should create a list of list items with the provided text and style', () => {
         const text = ['Hello, world! This is a test.', 'This is another test.'];
         const style = { fontColor: '#000', backgroundColor: '#f0f0f0' };
 
-        createListItems(text, style, displayText);
-
-        expect(displayText.innerHTML).not.toBe('');
-
-        const ul = displayText.querySelector('ul');
+        const ul = createListItems(text, style);
         expect(ul).not.toBeNull();
         expect(ul!.classList.contains('carousel')).toBe(true);
 

@@ -16,10 +16,8 @@ export const createListItem = (
 
 export const createListItems = (
     items: string[],
-    { fontColor, backgroundColor }: { fontColor: string; backgroundColor: string },
-    displayText: HTMLElement
+    { fontColor, backgroundColor }: { fontColor: string; backgroundColor: string }
 ) => {
-    displayText.innerHTML = '';
     const ul = document.createElement('ul');
     ul.classList.add('carousel');
 
@@ -28,5 +26,5 @@ export const createListItems = (
         ul.appendChild(listItem);
     });
 
-    displayText.appendChild(ul);
+    return ul;
 };
