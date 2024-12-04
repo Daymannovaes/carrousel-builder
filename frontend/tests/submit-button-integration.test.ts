@@ -1,4 +1,5 @@
 import { describe, it, beforeEach, expect } from "vitest";
+import { vi } from "vitest";
 
 describe("Submit button integration", () => {
     let submitButton: HTMLElement;
@@ -6,12 +7,22 @@ describe("Submit button integration", () => {
     let displayText: HTMLElement;
     let errorMessage: HTMLElement;
 
-    beforeEach(() => {
+    beforeEach(async () => {
+        vi.resetModules();
+
         document.body.innerHTML = `
             <input id="textInput" />
             <button id="submitButton">Submit</button>
             <div id="displayText"></div>
             <div id="errorMessage"></div>
+
+            <button id="fontColorButton">Font Color</button>
+            <input id="fontColor" type="hidden" />
+            <div id="fontColorPreview"></div>
+            
+            <button id="backgroundColorButton">Background Color</button>
+            <input id="backgroundColor" type="hidden" />
+            <div id="backgroundColorPreview"></div>
         `;
 
         submitButton = document.getElementById("submitButton")!;
@@ -19,7 +30,7 @@ describe("Submit button integration", () => {
         displayText = document.getElementById("displayText")!;
         errorMessage = document.getElementById("errorMessage")!;
 
-        import("../src/index.ts");
+        await import("../src/index.ts");
     });
 
     it("should handle empty input correctly when submit button is clicked", () => {
