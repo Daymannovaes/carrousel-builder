@@ -68,4 +68,16 @@ describe("Submit button integration", () => {
         expect(errorMessage.textContent).toBe("");
         expect(displayText.innerHTML).not.toBe("");
     });
+
+    it('should generate multiple slides for text exceeding 300 words', () => {
+        const longText = Array(301).fill("word").join(" ");
+        textInput.value = longText;
+
+        submitButton.click();
+
+        expect(displayText.children.length).toBeGreaterThan(1);
+        expect(errorMessage.textContent).toBe("");
+        expect(displayText.children[0].textContent?.split(" ").length).toBeLessThanOrEqual(300);
+        expect(displayText.children[1].textContent?.split(" ").length).toBeLessThanOrEqual(300);
+    })
 });
