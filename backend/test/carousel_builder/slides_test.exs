@@ -21,7 +21,11 @@ defmodule CarouselBuilder.SlidesTest do
     end
 
     test "create_slide/1 with valid data creates a slide" do
-      valid_attrs = %{background_color: "some background_color", font_color: "some font_color", quill_delta_content: "some quill_delta_content"}
+      valid_attrs = %{
+        background_color: "some background_color",
+        font_color: "some font_color",
+        quill_delta_content: "some quill_delta_content"
+      }
 
       assert {:ok, %Slide{} = slide} = Slides.create_slide(valid_attrs)
       assert slide.background_color == "some background_color"
@@ -35,7 +39,12 @@ defmodule CarouselBuilder.SlidesTest do
 
     test "update_slide/2 with valid data updates the slide" do
       slide = slide_fixture()
-      update_attrs = %{background_color: "some updated background_color", font_color: "some updated font_color", quill_delta_content: "some updated quill_delta_content"}
+
+      update_attrs = %{
+        background_color: "some updated background_color",
+        font_color: "some updated font_color",
+        quill_delta_content: "some updated quill_delta_content"
+      }
 
       assert {:ok, %Slide{} = slide} = Slides.update_slide(slide, update_attrs)
       assert slide.background_color == "some updated background_color"

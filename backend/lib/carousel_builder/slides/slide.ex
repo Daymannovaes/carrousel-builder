@@ -1,5 +1,8 @@
 defmodule CarouselBuilder.Slides.Slide do
+  @moduledoc false
+
   use Ecto.Schema
+
   import Ecto.Changeset
 
   schema "slides" do

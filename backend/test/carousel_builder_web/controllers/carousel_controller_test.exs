@@ -49,7 +49,10 @@ defmodule CarouselBuilderWeb.CarouselControllerTest do
   describe "update carousel" do
     setup [:create_carousel]
 
-    test "renders carousel when data is valid", %{conn: conn, carousel: %Carousel{id: id} = carousel} do
+    test "renders carousel when data is valid", %{
+      conn: conn,
+      carousel: %Carousel{id: id} = carousel
+    } do
       conn = put(conn, ~p"/api/carousels/#{carousel}", carousel: @update_attrs)
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
