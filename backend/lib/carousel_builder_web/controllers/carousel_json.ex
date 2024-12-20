@@ -1,5 +1,6 @@
 defmodule CarouselBuilderWeb.CarouselJSON do
   alias CarouselBuilder.Carousels.Carousel
+  alias CarouselBuilderWeb.SlideJSON
 
   @doc """
   Renders a list of carousels.
@@ -18,8 +19,9 @@ defmodule CarouselBuilderWeb.CarouselJSON do
   defp data(%Carousel{} = carousel) do
     %{
       id: carousel.id,
-      carousel: carousel.carousel,
-      status: carousel.status
+      name: carousel.name,
+      is_active: carousel.is_active,
+      slide: carousel.slide && SlideJSON.data(carousel.slide)
     }
   end
 end
