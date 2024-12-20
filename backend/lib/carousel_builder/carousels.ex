@@ -22,6 +22,7 @@ defmodule CarouselBuilder.Carousels do
   def list_carousels do
     Carousel
     |> where([c], c.is_active == true)
+    |> preload(:slide)
     |> Repo.all()
   end
 
@@ -39,7 +40,11 @@ defmodule CarouselBuilder.Carousels do
       ** (Ecto.NoResultsError)
 
   """
-  def get_carousel!(id), do: Repo.get!(Carousel, id)
+  def get_carousel!(id) do
+    Carousel
+    |> preload(:slide)
+    |> Repo.get!(id)
+  end
 
   @doc """
   Creates a carousel.

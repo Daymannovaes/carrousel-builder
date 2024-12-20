@@ -15,7 +15,7 @@ defmodule CarouselBuilderWeb.SlideJSON do
     %{data: data(slide)}
   end
 
-  defp data(%Slide{} = slide) do
+  def data(%Slide{} = slide) do
     %{
       id: slide.id,
       background_color: slide.background_color,
