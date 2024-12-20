@@ -21,5 +21,7 @@ defmodule CarouselBuilder.Carousels.Carousel do
     carousel
     |> cast(attrs, [:name, :slide_id, :is_active])
     |> validate_required([:name, :slide_id, :is_active])
+    |> validate_length(:name, min: 1)
+    |> unique_constraint(:name)
   end
 end

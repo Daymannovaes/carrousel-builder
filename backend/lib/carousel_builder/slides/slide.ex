@@ -18,5 +18,7 @@ defmodule CarouselBuilder.Slides.Slide do
     slide
     |> cast(attrs, [:background_color, :font_color, :quill_delta_content])
     |> validate_required([:background_color, :font_color, :quill_delta_content])
+    |> validate_length(:background_color, min: 1)
+    |> validate_length(:font_color, min: 1)
   end
 end
