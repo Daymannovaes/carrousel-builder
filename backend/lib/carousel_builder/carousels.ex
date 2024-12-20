@@ -20,7 +20,9 @@ defmodule CarouselBuilder.Carousels do
 
   """
   def list_carousels do
-    Repo.all(Carousel)
+    Carousel
+    |> where([c], c.is_active == true)
+    |> Repo.all()
   end
 
   @doc """
